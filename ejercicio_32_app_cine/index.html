@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="mystyle.css">
     <title>Super Pelis</title>
 </head>
+
 <body>
     <div id="div-formulario">
         <input type="text" id="t-titulo" placeholder="Título">
@@ -19,13 +21,14 @@
         <button id="b-genero">Buscar</button>
         <input type="number" id="t-anyo" placeholder="Año" min="1900" max="2030">
         <button id="b-anyo">Buscar</button>
-
-        <label for="r-asc">Duración ascendente</label>
-        <input type="radio" id="r-asc" name="ordenar" value="ascendente" checked>
-        <label for="r-desc">Duración descendente</label>
-        <input type="radio" id="r-desc" name="ordenar" value="descendente">
-        <button id="b-ordenar">Ordenar</button>
-        <span id="contador"></span>       
+        <span id="contador"></span>
+        <div>
+            <label for="r-asc">Duración ascendente</label>
+            <input type="radio" id="r-asc" name="ordenar" value="ascendente" checked>
+            <label for="r-desc">Duración descendente</label>
+            <input type="radio" id="r-desc" name="ordenar" value="descendente">
+            <button id="b-ordenar">Ordenar</button>
+        </div>
     </div>
     <div id="container">
         <!-- Tarjeta 1 -->
@@ -42,6 +45,7 @@
         -->
     </div>
 </body>
+
 </html>
 <script src="./myhttp.js"></script>
 <script src="./app.js"></script>
