@@ -1,34 +1,13 @@
-const URL='https://fpaniaguajavascript.github.io/movies-250.json';
+//const URL='https://fpaniaguajavascript.github.io/movies-250.json';
+let URL = 'http://www.omdbapi.com/?apikey=';
 
 let peliculas;
 let peliculasFiltradas;
 
-
 function processMovie(data) {
-    peliculas = data.movies;
-    //peliculasFiltradas = peliculas;//Ambos arrays son el mismo
+    peliculas = data.Search;
     peliculasFiltradas = Array.from(peliculas);//Crea un nuevo array
-    generarDesplegableGenero(peliculas);
-
-    //FORMAS DE RECORRER ARRAYS Y OBJETOS
-    /*
-    //Recorremos con bucle for tradicional
-    for (let i=0;i<peliculas.length;i++){
-        console.log("Duration:" + peliculas[i].Runtime);
-    }
-    //Recorremos con bucle for-of
-    for (pelicula of peliculas) {
-        console.log("Director:" + pelicula.Director);
-    }
-    //Recorremos con el método forEach
-    peliculas.forEach(pelicula => {
-        console.log("Título:" + pelicula.Title);
-    });
-    //Recorre el contenido de un objeto
-    for (atributo in peliculas[0]){
-        console.log(atributo, peliculas[0][atributo]);
-    }
-    */
+    //generarDesplegableGenero(peliculas);
     peliculas.forEach(pelicula => {
         generateCard(pelicula);
     });
@@ -58,16 +37,7 @@ function generateCard(pelicula){
     nuevoTitulo.textContent = pelicula.Title;
     nuevoContenido.appendChild(nuevoTitulo);
     
-    //5. Crear el director <p><strong>Director:</strong> Francis Ford Coppola</p>
-    const nuevoParrafoDirector = document.createElement("p");
-    const nuevaNegrita = document.createElement("strong");
-    nuevoParrafoDirector.appendChild(nuevaNegrita);
-    nuevaNegrita.textContent = "Director: ";
-    nuevoContenido.appendChild(nuevoParrafoDirector);
-    const textoDirector = document.createTextNode(pelicula.Director)
-    nuevoParrafoDirector.appendChild(textoDirector);
-    
-    //6. Año
+    //5. Año
     //<p><strong>Año:</strong> 1972</p>
     const nuevoParrafoAnyo = document.createElement("p");
     const nuevaNegritaAnyo = document.createElement("strong");
@@ -77,7 +47,8 @@ function generateCard(pelicula){
     const textoAnyo = document.createTextNode(pelicula.Year)
     nuevoParrafoAnyo.appendChild(textoAnyo);
     
-    //7. Género
+    /*
+    //6. Género
     //<p><span class="genre">Género:</span> Drama, Crimen</p>
     const nuevoParrafoGenero = document.createElement("p");
     const nuevoSpanGenero = document.createElement("span");
@@ -86,7 +57,7 @@ function generateCard(pelicula){
     nuevoParrafoGenero.appendChild(nuevoSpanGenero);
     nuevoParrafoGenero.appendChild(document.createTextNode(pelicula.Genre));
     nuevoContenido.appendChild(nuevoParrafoGenero);
-
+    */
     //Último paso: Agregar al contenedor la ficha recién creada
     document.querySelector("#container").appendChild(nuevaCard);//Agregamos el div al contenedor
 }
@@ -113,4 +84,3 @@ function clearCards(){
     document.querySelectorAll(".card").forEach(card=>card.remove());//Elegante
 }
 
-doGetRequest(URL, processMovie);
