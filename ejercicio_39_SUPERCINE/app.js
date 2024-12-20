@@ -1,4 +1,3 @@
-//const URL='https://fpaniaguajavascript.github.io/movies-250.json';
 let URL = 'http://www.omdbapi.com/?apikey=';
 
 let peliculas;
@@ -7,7 +6,7 @@ let peliculasFiltradas;
 function processMovie(data) {
     peliculas = data.Search;
     peliculasFiltradas = Array.from(peliculas);//Crea un nuevo array
-    //generarDesplegableGenero(peliculas);
+    generarDesplegableTipo(peliculas);
     peliculas.forEach(pelicula => {
         generateCard(pelicula);
     });
@@ -62,20 +61,20 @@ function generateCard(pelicula){
     document.querySelector("#container").appendChild(nuevaCard);//Agregamos el div al contenedor
 }
 
-function generarDesplegableGenero(peliculas){
-    //Extraemos los géneros del fichero json 
-    let setGeneros = new Set();
+function generarDesplegableTipo(peliculas){
+    //Extraemos los tipos del fichero json 
+    let setTipos = new Set();
     peliculas.forEach(pelicula=>{
-        let generos = pelicula.Genre.split(',').map(genero=>genero.trim());
-        generos.forEach(genero=>setGeneros.add(genero));
+        setTipos.add(pelicula.Type);
     });
     //<option value="drama">Drama</option>
-    let arrayGeneros = Array.from(setGeneros);
-    arrayGeneros.sort().forEach(genero=>{
-        let generoOption = document.createElement("option");
-        generoOption.setAttribute("value",genero.toLowerCase());
-        generoOption.textContent=genero;
-        document.querySelector("#s-genero").appendChild(generoOption);
+    let arrayTipos = Array.from(setTipos);
+    arrayTipos.sort().forEach(tipo=>{
+        let tipoOption = document.createElement("option");
+        tipoOption.setAttribute("value",tipo.toLowerCase());
+        //tipoOption.textContent=tipo;
+        tipoOption.textContent=tipo.charAt(0).toUpperCase() + tipo.slice(1)
+        document.querySelector("#s-tipo").appendChild(tipoOption);
     });
 }
 

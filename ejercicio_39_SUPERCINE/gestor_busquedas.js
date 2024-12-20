@@ -6,40 +6,25 @@ document.querySelector("#b-buscar-omdb").addEventListener("click",()=>{
     doGetRequest(nuevaURL, processMovie);
 })
 
-
-//Busqueda por Título, pulsando el botón Buscar
-document.querySelector("#b-titulo").addEventListener("click", () => {
-    filtrarPeliculas("#t-titulo", "Title");
-});
-
 //Busqueda por Título, escribiendo en la caja de texto
-/*
 document.querySelector("#t-titulo").addEventListener("input", () => {
     filtrarPeliculas("#t-titulo","Title");
 });
-*/
-
-//Busqueda por Actor, pulsando el botón Buscar
-document.querySelector("#b-actor").addEventListener("click", () => {
-    filtrarPeliculas("#t-actor", "Actors");
-});
-
-//Busqueda por Género, pulsando el botón Buscar
-/*
-document.querySelector("#b-genero").addEventListener("click", () => {
-    filtrarPeliculas("#s-genero","Genre");
-});
-*/
 
 //Busqueda por Género, cambiando la selección del desplegable
-document.querySelector("#s-genero").addEventListener("change", () => {
-    filtrarPeliculas("#s-genero", "Genre");
+document.querySelector("#s-tipo").addEventListener("change", () => {
+    filtrarPeliculas("#s-tipo", "Type");
 });
 
 //Busqueda por Año, pulsando el botón Buscar
 document.querySelector("#b-anyo").addEventListener("click", () => {
     filtrarPeliculas("#t-anyo", "Year");
 });
+
+document.querySelector("#b-reiniciar").addEventListener("click", ()=> {
+    document.querySelector("#t-titulo").value="";
+    filtrarPeliculas("#t-titulo","Title");
+})
 
 /**
  * Función de búsqeuda 
