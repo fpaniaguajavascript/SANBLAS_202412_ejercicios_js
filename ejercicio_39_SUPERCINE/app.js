@@ -1,11 +1,49 @@
 let URL = 'http://www.omdbapi.com/?apikey=';
 
-let peliculas;
-let peliculasFiltradas;
+let peliculas = [];
+let peliculasFiltradas  = [];
 
 function processMovie(data) {
     peliculas = data.Search;
-    peliculasFiltradas = Array.from(peliculas);//Crea un nuevo array
+    peliculasFiltradas = Array.from(peliculas);
+    generarDesplegableTipo(peliculas);
+    peliculas.forEach(pelicula => {
+        generateCard(pelicula);
+    });
+}
+
+/**
+ * Recoge el retorno de la primera llamada, calcula el número de páginas
+ * y hace tantas llamadas como páginas (-1, la primera que ya está leída)
+ * @param {} data 
+ */
+function processMovies(data) {
+    clearCards();
+    let totalResults = data.totalResults;
+    let totalPages = Math.ceil(totalResults/10);
+    peliculas = data.Search;
+    peliculasFiltradas = Array.from(peliculas);
+    for (let i=2;i<totalPages;i++){
+        let tituloBuscado = document.querySelector("#t-titulo-omdb").value;
+        let apikey = document.querySelector("#t-apikey").value;
+        let nuevaURL = `${URL}${apikey}&s=${tituloBuscado}&page=${i}`;
+        doGetRequest(nuevaURL, appendMovies);
+    }
+}
+
+/**
+ * ¡Muy poco eficiente!
+ * Cuando una búsqueda tiene múltiples páginas, cada página se trata en
+ * esta función.
+ * Para cada página limpia las tarjetas del documento, y crea de nuevo
+ * todas las tarjetas, las que ya estaban y las nuevas.
+ * 
+ * @param {} data 
+ */
+function appendMovies(data){
+    clearCards();
+    peliculas = peliculas.concat(data.Search);
+    peliculasFiltradas = Array.from(peliculas);
     generarDesplegableTipo(peliculas);
     peliculas.forEach(pelicula => {
         generateCard(pelicula);
