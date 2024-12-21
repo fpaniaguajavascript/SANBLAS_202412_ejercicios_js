@@ -3,7 +3,7 @@ document.querySelector("#b-buscar-omdb").addEventListener("click",()=>{
     let tituloBuscado = document.querySelector("#t-titulo-omdb").value;
     let apikey = document.querySelector("#t-apikey").value;
     let nuevaURL = `${URL}${apikey}&s=${tituloBuscado}`;
-    doGetRequest(nuevaURL, processMovies);
+    doGetRequest(nuevaURL, processMovie);
 })
 
 //Busqueda por Título, escribiendo en la caja de texto
