@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage Demo</title>
+    <script src="ls_manager.js"></script>
+</head>
+<body>
+    <input type="text" id="i-texto" placeholder="Escribe algo..."/>
+    <button id="b-guardar">Guardar</button>
+    <button id="b-recuperar">Recuperar</button>
+</body>
+</html>
+<script>
+    const KEY_TEXT = "texto";
+    document.querySelector("#b-guardar").addEventListener("click",()=>{
+        console.log("Botón guardar...");
+        let texto = document.querySelector("#i-texto").value;
+        saveToLocalStorage(KEY_TEXT, texto);
+    });
+    document.querySelector("#b-recuperar").onclick = () => {
+        console.log("Botón recuperar");
+        let texto = getFromLocalStorage(KEY_TEXT);
+        document.querySelector("#i-texto").value = texto;
+    };
+</script>

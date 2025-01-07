@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurador</title>
+</head>
+  
+<body>
+    <div>
+        <label for="i-bg-color">Color de fondo</label>
+        <input type="color" id="i-bg-color" value="#ffffff">
+        <label for="i-text-color">Color de texto</label>
+        <input type="color" id="i-text-color" value="#000000">
+        <button id="b-save">Guardar</button>
+    </div>
+    <div id="contenedor">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde natus, ipsa similique doloremque molestiae aliquam quos ducimus, ea quae maiores distinctio omnis, quas ad eos. Iusto, reprehenderit? Odit, vero est?</p>
+    </div>
+</body>
+
+</html>
+<script>
+    document.getElementById('b-save').addEventListener('click', function() {
+        let bgColor = document.getElementById('i-bg-color').value;
+        let textColor = document.getElementById('i-text-color').value;
+        localStorage.setItem('bg-color', bgColor);
+        localStorage.setItem('text-color', textColor);
+    });
+
+    let bgColor = localStorage.getItem('bg-color');
+    let textColor = localStorage.getItem('text-color'); 
+
+    if (bgColor) {
+        document.getElementById('contenedor').style.backgroundColor = bgColor;
+        document.getElementById('i-bg-color').value = bgColor;
+    }
+
+    if (textColor) {
+        document.getElementById('contenedor').style.color = textColor;
+        document.getElementById('i-text-color').value = textColor;
+    }
+</script>
