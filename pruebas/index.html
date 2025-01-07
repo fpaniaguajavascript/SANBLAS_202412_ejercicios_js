@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pruebas</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    class Punto {
+        //Constructor
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+        }
+        
+        //Método
+        saludar() {
+            return `Hola, soy un puntazo:(${this.x}, ${this.y})`;
+        }
+    }
+    let punto1 = new Punto(1, 2);//Instanciar un objeto de la clase Punto
+    console.log(punto1.saludar());//Invocar a un método de la clase Punto
+    //console.log(punto1.x);
+
+    punto1.despedir = function() {
+        console.log("Despedir 1");
+    }
+    punto1.despedir = function() {
+        console.log("Despedir 2");
+    }
+    punto1.despedir = () => {
+        console.log("Despedir 3");
+    }
+    
+    punto1.despedir();
+</script>

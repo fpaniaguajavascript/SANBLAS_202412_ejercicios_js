@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #contenedor {
+        width: 100%;
+        text-align: center;
+    }
+</style>
+<body>
+    <div id="contenedor">
+        <img id="imagen" loquesea="101" width="300px" height="300px" alt="Paisaje" src="https://as2.ftcdn.net/v2/jpg/03/15/66/87/500_F_315668707_UF7iHkdyZed9YcZmFgAjiA9YBOxcWRTr.jpg">
+    </div>
+    <div>
+        <h3 id="x">x</h3>
+        <h3 id="y">y</h3>
+    </div>
+</body>
+<script>
+    const imagen = document.getElementById('imagen');
+    const x = document.getElementById('x');
+    const y = document.getElementById('y');
+
+    imagen.addEventListener('mousemove', (e) => {
+        x.textContent = e.offsetX;
+        y.textContent = e.offsetY;
+        console.log(imagen.getAttribute('loquesea'));
+    });
+</script>
+</html>
