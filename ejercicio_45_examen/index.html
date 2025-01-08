@@ -1,17 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Examen</title>
-    <link rel="stylesheet" href="style.css">   
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div id="div-portada" class="pagina">Portada <button id="b-comenzar">Comenzar</button></div>
-    <div id="div-pregunta-1" class="pagina">Pregunta 1</div>
-    <div id="div-pregunta-2" class="pagina">Pregunta 2</div>
-    <div id="div-pregunta-3" class="pagina">Pregunta 3</div>
+    <div id="div-info">
+        <p>Tiempo restante (segundos):<span id="s-tiempo"></span></p>
+    </div>
+    <div id="div-portada" class="pagina">
+        <img src="./images/start.png" id="b-comenzar">
+    </div>
+    <div id="div-pregunta-1" class="pagina">
+        <div class="div-enunciado">
+            <p><h3>¿Cómo se indica una constante en JavaScript?</h3></p>
+        </div>
+        <div class="div-respuestas">
+            <input type="radio" name="pregunta-1" value="1">Respuesta 1<br>
+            <input type="radio" name="pregunta-1" value="2">Respuesta 2<br>
+            <input type="radio" name="pregunta-1" value="3">Respuesta 3<br>
+        </div>
+        <div class="div-siguiente">
+            <button id="b-siguiente-1">Siguiente</button>
+        </div>  
+    </div>
+    <div id="div-pregunta-2" class="pagina">
+        <div class="div-enunciado">
+            <p><h3>¿Cómo se declara un array en JavaScript?</h3></p>
+        </div>
+        <div class="div-respuestas">
+            <input type="radio" name="pregunta-2" value="1">Respuesta 1<br>
+            <input type="radio" name="pregunta-2" value="2">Respuesta 2<br>
+            <input type="radio" name="pregunta-2" value="3">Respuesta 3<br>
+        </div>
+        <div class="div-siguiente">
+            <button id="b-siguiente-2">Siguiente</button>
+        </div>
+    </div>
+    <div id="div-pregunta-3" class="pagina">
+        <div class="div-enunciado">
+            <p><h3>¿Cuál es la palabra clave para definir una función en JavaScript? </h3></p>
+        </div>
+        <div class="div-respuestas">
+            <input type="radio" name="pregunta-3" value="1">Respuesta 1<br>
+            <input type="radio" name="pregunta-3" value="2">Respuesta 2<br>
+            <input type="radio" name="pregunta-3" value="3">Respuesta 3<br>
+        </div>
+        <div class="div-siguiente">
+            <button id="b-siguiente-3">Siguiente</button>
+        </div>
+    </div>
     <div id="div-resultado" class="pagina">Resultado</div>
 </body>
+
 </html>
 <script src="app.js"></script>
