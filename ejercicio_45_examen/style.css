@@ -1,0 +1,12 @@
+#div-portada {
+    background-color: aquamarine;
+    width: 100%;
+    height: 20em;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    transition: all 1s;
+}
+#div-pregunta-1, #div-pregunta-2, #div-pregunta-3, #div-resultado {
+    display: none;
+}

@@ -1,4 +1,8 @@
+body {
+    background-color: bisque;
+}
 #div-gatito, #div-gatito-vertical {
+    z-index: -1;
     position: fixed;
     width: 100%;
 }

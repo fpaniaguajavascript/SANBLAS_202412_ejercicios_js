@@ -55,16 +55,18 @@
     let randomLeft = Math.random() * window.innerWidth;
     divGatoVertical.style.marginLeft = `${randomLeft}px`;
 
+    let horizontalSpeed = 1;
     //Mover gatitos
     setInterval(()=> {
-        marginLeft += 2;
-        marginTop += 2;
+        marginLeft += horizontalSpeed;
+        marginTop += 1;
         let divGato = document.getElementById('div-gatito');
         let divGatoVertical = document.getElementById('div-gatito-vertical');
         divGato.style.marginLeft = `${marginLeft}px`;
         divGatoVertical.style.marginTop = `${marginTop}px`;
-        if (marginLeft > window.innerWidth) {
-            marginLeft = -window.innerWidth*0.05;//5% del ancho de la ventana
+        if (marginLeft > window.innerWidth || marginLeft < 0) {
+            //marginLeft = -window.innerWidth*0.05;//5% del ancho de la ventana
+            horizontalSpeed = -horizontalSpeed;
         }
         if (marginTop > window.innerHeight) {
             marginTop = -window.innerHeight*0.05;//5% del alto de la ventana
@@ -72,6 +74,4 @@
             divGatoVertical.style.marginLeft = `${randomLeft}px`;
         }
     }, 16);
-
-
 </script>
