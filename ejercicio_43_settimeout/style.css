@@ -11,3 +11,15 @@ footer {
 
     transition: all 2s;
 }
+
+#div-monster {
+    top: 0px;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    display: none;
+}
+
+#div-monster img {
+    width: 50%;
+}

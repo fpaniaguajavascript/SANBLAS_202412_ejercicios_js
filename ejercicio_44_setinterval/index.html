@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Interval</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="div-gatito">
+        <img src="./images/gatito.png" width="5%" alt="gatito">
+    </div>
+    <div id="div-gatito-vertical">
+        <img src="./images/gatito.png" width="5%" alt="gatito">
+    </div>
+    <div id="cronometro">0</div>
+    <div id="reloj">0</div>
+    <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit rem officia dolor sint cupiditate dignissimos eius ab explicabo? Autem deleniti repellendus architecto ipsum? Ipsam cum facere, ducimus fugit architecto deserunt.
+        Ex aspernatur dolores soluta accusamus consequuntur quo animi molestiae repellendus vel ad, eius, dignissimos reprehenderit asperiores harum fugit quis ab nemo eveniet dolorem iste! Tenetur, aperiam. Sunt vero blanditiis assumenda?
+        Consequatur voluptatibus excepturi nisi eius? Et aliquam dolores dolor ipsam ullam, odio ducimus nemo soluta magni officiis veritatis eveniet autem, iure molestias consequuntur fuga voluptates reiciendis magnam necessitatibus. Maxime, nobis.
+        Saepe inventore aliquid est. Voluptas cumque numquam amet unde facere, totam maxime autem excepturi sit explicabo hic, accusamus velit nihil sed vel non doloremque aliquam cum fugiat tenetur quis obcaecati.
+        Consequuntur soluta aspernatur neque nobis nesciunt itaque est? Maiores minima consequuntur libero sit doloremque autem veniam obcaecati explicabo quidem, nulla aperiam, culpa nesciunt fugit aut dolore saepe accusamus praesentium vero.
+        Soluta nostrum dolor ducimus, enim velit laborum omnis architecto. Dolor quasi rerum ex commodi minima rem pariatur nisi reprehenderit cupiditate officiis, accusamus vero debitis provident quos ipsam laboriosam repellendus quaerat.
+        Accusamus optio ullam corrupti voluptate repellendus porro rerum modi quibusdam perferendis, libero deleniti nemo neque consectetur numquam excepturi. Modi dolores explicabo nobis odit non ullam reiciendis nam, eveniet asperiores magnam?
+        Suscipit voluptatem rerum animi error laboriosam dicta sit asperiores odit blanditiis repellendus nesciunt iusto, iste debitis ut praesentium non tempore, sed officia. Voluptatum facere sapiente voluptatibus. Fugit repudiandae ab doloribus?
+        Cumque quibusdam modi iusto nam aperiam eius fugiat illum architecto. Provident veniam, placeat excepturi laboriosam, quas enim nam veritatis hic quod odit dolore, soluta cupiditate blanditiis iste perferendis possimus aperiam!
+        Impedit et error, amet optio labore id blanditiis? Delectus fugit fuga animi magni! Eligendi qui quod voluptates nemo recusandae at ipsum atque harum hic officiis minus molestiae ipsam, consequuntur quam!
+    </div>
+</body>
+</html>
+<script>
+    let contador = 0;
+    let marginLeft = 0;
+    let marginTop = 0;
+
+    //Contador de segundos
+    setInterval(()=> {
+        contador++;
+        document.getElementById('cronometro').innerText = contador;
+    }, 1000);
+
+    //Reloj
+    setInterval(()=> {
+        let fecha = new Date();
+        let hora = fecha.getHours();
+        let minutos = fecha.getMinutes();
+        let segundos = fecha.getSeconds();
+        let milisegundos = fecha.getMilliseconds();
+        document.getElementById('reloj').innerText = `${hora}:${minutos}:${segundos}`;
+    }, 1000);
+    
+    //Inicializar gatito vertical
+    let divGatoVertical = document.getElementById('div-gatito-vertical');
+    let randomLeft = Math.random() * window.innerWidth;
+    divGatoVertical.style.marginLeft = `${randomLeft}px`;
+
+    //Mover gatitos
+    setInterval(()=> {
+        marginLeft += 2;
+        marginTop += 2;
+        let divGato = document.getElementById('div-gatito');
+        let divGatoVertical = document.getElementById('div-gatito-vertical');
+        divGato.style.marginLeft = `${marginLeft}px`;
+        divGatoVertical.style.marginTop = `${marginTop}px`;
+        if (marginLeft > window.innerWidth) {
+            marginLeft = -window.innerWidth*0.05;//5% del ancho de la ventana
+        }
+        if (marginTop > window.innerHeight) {
+            marginTop = -window.innerHeight*0.05;//5% del alto de la ventana
+            let randomLeft = Math.random() * window.innerWidth;
+            divGatoVertical.style.marginLeft = `${randomLeft}px`;
+        }
+    }, 16);
+
+
+</script>
