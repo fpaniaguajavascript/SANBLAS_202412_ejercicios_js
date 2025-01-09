@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Formularios</h1>
+    <form action="https://echo.free.beeceptor.com" method="get" id="formulario01">
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+        <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
+        <input type="password" name="password" id="password" placeholder="Contraseña" required minlength="8">
+        <input type="text" name="clave" id="clave" placeholder="Clave" pattern="^\d.*Z.*">
+        <input type="email" name="email" id="email" placeholder="Email" required>
+        <input type="reset" value="Borrar">
+        <input type="submit" value="Enviar">
+    </form>
+    <button id="bEnviarNoSubmit">Enviar (no submit)</button>
+    
+</body>
+</html>
+<script>
+    document.querySelector("#nombre").addEventListener("focus", function(){
+        console.log("Estas dentro del input");
+    });
+    document.querySelector("#nombre").addEventListener("focus", function(){
+        console.log("Haces algo distinto");
+    });
+    document.querySelector("#apellidos").onblur = function(){
+        console.log("Estas fuera del input");
+    };
+    document.querySelector("#password").oninvalid = function(){
+        console.log("Error al validar la contraseña");
+        document.querySelector("#password").style.color = "red";
+    };
+    document.querySelector("#bEnviarNoSubmit").onclick = function(){
+        console.log("Test:", document.querySelector("#formulario01").checkValidity());
+        if (document.querySelector("#formulario01").checkValidity()){
+            document.querySelector("#formulario01").submit();
+        }
+    };
+</script>

@@ -1,0 +1,13 @@
+1. Crear una página HTML
+2. Crear un fichero calculadora.js con las funciones:
+    sumar(numero1, numero2) -> Devuelve la suma de los números
+    restar(numero1, numero2) -> Devuelve la suma (mal a propósito) de los números
+
+3. La función sumar verifica que los argumentos numero1 y numero2 son 
+   correctos (tipo) lanzando una excepción si no lo son.
+
+4. En la página HTML hay dos inputs (número 1 y número 2) y los botones
+   sumar y restar que realizan las operaciones.
+
+5. En la página HTML se muestra el resultado de la operación o el mensaje de 
+   error si procede.
